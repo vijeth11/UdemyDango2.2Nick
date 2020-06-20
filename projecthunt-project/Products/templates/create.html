@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+<div style="width: 100%;background-color: red;color: aliceblue;" >
+{{error}}
+</div>
+<br>
+{% endif %}
+<div class="d-flex justify-content-center">
+<h1>Create</h1>
+</div>
+<div class="container d-flex justify-content-center" >
+<form method="POST" action="{% url 'create' %}" enctype = "multipart/form-data">
+    {% csrf_token %}
+    Title:
+    <br>
+    <input type="text" name="title">
+    <br>
+    Body:
+    <br>
+    <input type="textbox" name="body">
+    <br>
+    URL:
+    <br>
+    <input type="text" name="url">
+    <br>
+    Icon:
+    <br>
+    <input type="file" name="icon">
+    <br>
+    Image:
+    <br>
+    <input type="file" name="image">
+    <br>
+    <br>
+    <div class="d-flex justify-content-center">
+    <input class = "btn btn-primary" type="submit" value="Add Product">
+    </div>
+</form>
+</div>
+{% endblock %}

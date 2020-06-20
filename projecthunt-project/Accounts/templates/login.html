@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if error %}
+<div style="width: 100%;background-color: red;color: aliceblue;" >
+{{error}}
+</div>
+<br>
+{% endif %}
+<div class="d-flex justify-content-center">
+<h1>Login</h1>
+</div>
+<div class="container d-flex justify-content-center" >
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username:
+    <br>
+    <input type="text" name="username">
+    <br>
+    Password:
+    <br>
+    <input type="password" name="password">
+    <br>
+    <br>
+    <div class="d-flex justify-content-center">
+    <input class = "btn btn-primary" type="submit" value="Login">
+    </div>
+</form>
+</div>
+{% endblock %}
