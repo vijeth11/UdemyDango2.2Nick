@@ -76,7 +76,12 @@ WSGI_APPLICATION = 'projecthunt.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },    
+    'postgress': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'producthuntdb',
         'USER':'postgres',
